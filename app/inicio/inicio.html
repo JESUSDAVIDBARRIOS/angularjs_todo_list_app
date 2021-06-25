@@ -1,0 +1,128 @@
+<ul class="list-group">
+  <li ng-repeat="x in todolist.mylist track by $index">
+    <div class="nombre-fecha-tarea">
+      {{x.nombre}}
+      <p class="fecha-lista" ng-if="x.fecha != null">
+        Planeada para {{x.fecha | date}}
+      </p>
+    </div>
+    <div class="iconos_lista">
+      <i class="fas fa-eye" ng-click="todolist.showTaskDetail($index)"></i>
+      <span ng-click="todolist.removeItem($index)"
+        ><i class="fas fa-times"></i
+      ></span>
+    </div>
+  </li>
+  <li
+    ng-if="todolist.mylist.length == 0"
+    id="contenedor-sin-tareas"
+    class="list-group-item"
+  >
+    No hay tareas añadidas
+  </li>
+</ul>
+<div
+  id="boton-mostrar-form"
+  ng-click="todolist.showForm()"
+  class="btn btn-outline-dark"
+>
+  Añadir tarea
+</div>
+<div class="añadir-tarea-div">
+  <div class="div-form-crear">
+    <i class="fas fa-times cerrar-form" ng-click="todolist.hideForm()"></i>
+    <h2>Añadir tarea</h2>
+    <form
+      id="form-tarea-nueva"
+      ng-submit="todolist.addToList()"
+      name="todoForm"
+    >
+      <input
+        type="text"
+        required
+        placeholder="Nombre tarea"
+        class="form-control"
+        ng-model="todolist.new_name"
+      />
+      <textarea
+        name="descripcion"
+        placeholder="Descripción..."
+        cols="30"
+        rows="6"
+        ng-model="todolist.new_description"
+      ></textarea>
+      <label for="due_date">Fecha de vencimiento</label>
+      <input type="date" ng-model="todolist.new_due_date" name="due_date" />
+      <label for="due_time">Hora de entrega</label>
+      <input type="time" ng-model="todolist.new_due_time" name="due_time" />
+      <input type="submit" value="Agregar" class="btn btn-outline-dark" />
+    </form>
+  </div>
+</div>
+<div class="detalles-tarea-contenedor">
+  <div class="detalles-tarea">
+    <i class="fas fa-times" ng-click="todolist.hideTaskDetail()"></i>
+    <div id="info-tarea-detalle">
+      <h2 id="nombre_tarea_detail"></h2>
+      <p id="tarea-detail-index"></p>
+      <p id="datetime-tarea-detalle" ng-if="todolist.fecha_detalle != null">
+        Planeada para {{todolist.fecha_detalle | date }}<span
+          ng-if=" todolist.hora_detalle != null"
+          >, a las {{todolist.hora_detalle | date : 'shortTime'}}</span
+        >
+      </p>
+      <p id="descripcion-tarea-detalle"></p>
+      <div
+        id="boton-vista-editar"
+        class="btn btn-outline-dark container"
+        ng-click="todolist.showEditTask()"
+      >
+        Editar <i class="far fa-edit"></i>
+      </div>
+    </div>
+    <h2 id="editar_tarea_titulo">Editar tarea</h2>
+    <form
+      id="form-editar-tarea"
+      ng-submit="todolist.editTask()"
+      name="editTaskForm"
+    >
+      <input
+        type="text"
+        required
+        placeholder="Nombre tarea"
+        class="form-control"
+        ng-model="todolist.new_name"
+      />
+      <textarea
+        name="descripcion"
+        placeholder="Descripción..."
+        cols="30"
+        rows="6"
+        ng-model="todolist.new_description"
+      ></textarea>
+      <label for="due_date">Fecha de vencimiento</label>
+      <input
+        type="date"
+        id="date-edit-tarea"
+        ng-model="todolist.new_due_date"
+        name="due_date"
+      />
+      <label for="due_time">Hora de entrega</label>
+      <input
+        type="time"
+        id="time-edit-tarea"
+        ng-model="todolist.new_due_time"
+        name="due_time"
+      />
+      <div id="botones-editar-tarea">
+        <div
+          ng-click="todolist.showTaskDetail(null)"
+          class="btn-outline-dark btn"
+        >
+          Cancelar
+        </div>
+        <input type="submit" value="Editar" class="btn btn-outline-dark" />
+      </div>
+    </form>
+  </div>
+</div>

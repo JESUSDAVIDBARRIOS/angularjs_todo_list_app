@@ -1,0 +1,93 @@
+<!DOCTYPE html5>
+<html lang="es" ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tareas</title>
+    <link rel="icon" href="./assets/logo.png" type="image/png" />
+    <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="lib/html5-boilerplate/dist/css/normalize.css"
+    />
+    <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css" />
+    <link rel="stylesheet" href="app.css" />
+    <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  
+    <link rel="stylesheet" href="./calendario/evo-calendar.min.css">
+
+    <link rel="stylesheet" href="./app.css" />
+
+  </head>
+
+  <body ng-controller="todolist_controller as todolist">
+    <div id="cuerpo" class="container">
+      <h1>Tareas por hacer</h1>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            id="inicio-tab"
+            data-toggle="tab"
+            href="#!/"
+            role="tab"
+            aria-controls="inicio"
+            aria-selected="true"
+            >Tareas
+            <span class="badge badge-light scale05"
+              >{{todolist.mylist.length}}</span
+            ></a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="calendario-tab"
+            data-toggle="tab"
+            href="#!/calendario"
+            role="tab"
+            aria-controls="calendario"
+            aria-selected="false"
+            >Calendario</a
+          >
+        </li>
+      </ul>
+      <div id="contenedor-cambiante" ng-view></div>
+    </div>
+    
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/firebase/firebase-app.js"></script>
+    <script src="//cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
+    <script src="//cdn.firebase.com/libs/angularfire/0.7.0/angularfire.min.js"></script>
+    <script src="app.js"></script>
+    <script src="service/service.js"></script>
+    <script src="service/service.firebase.js"></script>
+    <script src="inicio/inicio.js"></script>
+    <script src="calendario/calendario.js"></script>
+    <script src="core/version/version.js"></script>
+    <script src="core/version/version-directive.js"></script>
+    <script src="core/version/interpolate-filter.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./calendario/evo-calendar.min.js"></script>
+
+  </body>
+</html>
