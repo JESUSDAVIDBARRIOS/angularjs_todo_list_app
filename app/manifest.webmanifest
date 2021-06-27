@@ -1,15 +1,16 @@
 {
     "short_name": "ToDoList",
     "name": "To Do List App",
+    "description": "A to do list App",
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#495057",
+    "background_color": "#495057",
     "icons": [
         {
             "src": "/assets/logo.png",
             "type": "image/png",
             "sizes": "512x512"
         }
-    ],
-    "start_url": ".",
-    "display": "standalone",
-    "theme_color": "#5a5a5a",
-    "background_color": "#5a5a5a"
+    ]
 }

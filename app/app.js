@@ -17,8 +17,8 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-const FBURL = 'https://INSTANCE.firebaseio.com';
-const loginRedirectPath = '/login';
+const FBURL = "https://INSTANCE.firebaseio.com";
+const loginRedirectPath = "/login";
 
 var app = angular
   .module("myApp", [
@@ -32,6 +32,9 @@ var app = angular
   // .run(['$rootScope', 'FBURL', function($rootScope, FBURL){
   //     $rootScope.FBURL = FBURL;
   // }])
+  .run([function(){
+    registerServiceWorker();
+  }])
   .config([
     "$locationProvider",
     "$routeProvider",
@@ -40,3 +43,13 @@ var app = angular
       $routeProvider.otherwise({ redirectTo: "/" });
     },
   ]);
+
+async function registerServiceWorker() {
+  if ("serviceWorker" in navigator) {
+    try {
+      await navigator.serviceWorker.register("./service-worker.js");
+    } catch (e) {
+      console.log(`ServiceWorker registration failed`);
+    }
+  }
+}

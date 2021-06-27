@@ -55,7 +55,7 @@ a:hover{
     align-items: center;
     margin-bottom: 2%;
     padding: 1.5% 2.5%;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
     border-bottom: 1px solid rgba(207, 207, 207, 0.466);
 }
 .list-group li:hover {
@@ -202,6 +202,7 @@ textarea {
 .btn-outline-dark {
     color: white;
     background-color: #495057;
+    transition: all 0.3s ease-in-out;
     -webkit-box-shadow: 0 3px 12px -4px rgb(0 0 0 / 65%);
     box-shadow: 0 3px 12px -4px rgb(0 0 0 / 65%);
 }
