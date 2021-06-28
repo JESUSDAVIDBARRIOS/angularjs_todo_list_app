@@ -18,9 +18,11 @@ var app = angular
   .config([
     "$locationProvider",
     "$routeProvider",
-    function ($locationProvider, $routeProvider) {
+    '$compileProvider',
+    function ($locationProvider, $routeProvider, $compileProvider) {
       $locationProvider.hashPrefix("!");
       $routeProvider.otherwise({ redirectTo: "/" });
+      $compileProvider.debugInfoEnabled(false);
     },
   ]);
 

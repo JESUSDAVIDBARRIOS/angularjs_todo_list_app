@@ -163,25 +163,6 @@ angular
       this.removeItem = function (index) {
         this.mylist.splice(index, 1);
         this.save();
-        // (async() => {
-        //   const contenedorTarea = document.getElementById(
-        //     `contenedor-tarea${index}`
-        //   );
-        //   contenedorTarea.style.animationPlayState = "running";
-        //   setTimeout(function(){
-        //     // contenedorTarea.style.display = "none";
-        //     this.removeTaskFromList();
-        //   }, 1200);
-        // })();
-        // // const contenedorTarea = document.getElementById(
-        // //   `contenedor-tarea${index}`
-        // // );
-        // // contenedorTarea.addEventListener("animationend", () => {
-        // //   // contenedorTarea.style.display = "none";
-        // //   this.mylist.splice(index, 1);
-        // // this.save();
-        // // });
-        // // contenedorTarea.style.animationPlayState = "running";
       };
       this.getItem = function (index) {
         return this.mylist[index];
