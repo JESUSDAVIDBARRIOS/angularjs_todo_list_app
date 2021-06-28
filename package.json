@@ -2,13 +2,12 @@
   "name": "jdbm_todo_list_app",
   "private": true,
   "version": "0.0.0",
-  "description": "AngularJs ToDo Lista App",
+  "description": "AngularJs ToDo List App",
   "license": "MIT",
   "dependencies": {
     "angular": "^1.7.5",
     "angular-loader": "^1.8.2",
     "angular-route": "^1.7.5",
-    "angularfire": "^2.3.0",
     "express": "^4.17.1",
     "html5-boilerplate": "0.0.1"
   },
