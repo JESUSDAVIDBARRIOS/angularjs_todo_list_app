@@ -4,24 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="theme-color" content="#fff">
+    <meta name="description" content="To Do List Web App built with AngularJs">
     <title>Tareas</title>
     <link rel="icon" href="./assets/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="./assets/logo.png">
     <link rel="manifest" href="./manifest.webmanifest">
     <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
 
+
+    <link
+      rel="stylesheet"
+      href="lib/html5-boilerplate/dist/css/normalize.css"
+    />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
-    <link
-      rel="stylesheet"
-      href="lib/html5-boilerplate/dist/css/normalize.css"
-    />
-    <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css" />
-    <link rel="stylesheet" href="app.css" />
-    <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -41,8 +42,8 @@
 
   <body ng-controller="todolist_controller as todolist">
     <div id="cuerpo" class="container">
-      <h1>Tareas por hacer</h1>
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <h1 id="titulo-sitio">Mis tareas</h1>
+      <ul class="nav " id="myTab" role="tablist">
         <li class="nav-item">
           <a
             class="nav-link active"
@@ -52,10 +53,10 @@
             role="tab"
             aria-controls="inicio"
             aria-selected="true"
-            >Tareas
-            <span class="badge badge-light scale05"
-              >{{todolist.mylist.length}}</span
-            ></a
+            ><span id="numero-tareas" class="badge badge-light scale05"
+            >{{todolist.mylist.length}}</span
+          > Tareas
+            </a
           >
         </li>
         <li class="nav-item">
@@ -74,14 +75,10 @@
       <div id="contenedor-cambiante" ng-view></div>
     </div>
     
+
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
-    <script src="lib/firebase/firebase-app.js"></script>
-    <script src="//cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
-    <script src="//cdn.firebase.com/libs/angularfire/0.7.0/angularfire.min.js"></script>
     <script src="app.js"></script>
-    <script src="service/service.js"></script>
-    <script src="service/service.firebase.js"></script>
     <script src="inicio/inicio.js"></script>
     <script src="calendario/calendario.js"></script>
     <script src="core/version/version.js"></script>

@@ -1,15 +1,15 @@
 <ul class="list-group">
-  <li ng-repeat="x in todolist.mylist track by $index">
+  <li id="contenedor-tarea{{$index}}" ng-repeat="x in todolist.mylist track by $index">
     <div class="nombre-fecha-tarea">
-      {{x.nombre}}
-      <p class="fecha-lista" ng-if="x.fecha != null">
+      <h5>{{x.nombre}}</h5>
+      <p class="fecha-lista" ng-if="x.fecha != null && x.fecha != ''">
         Planeada para {{x.fecha | date}}
       </p>
     </div>
     <div class="iconos_lista">
       <i class="fas fa-eye" ng-click="todolist.showTaskDetail($index)"></i>
       <span ng-click="todolist.removeItem($index)"
-        ><i class="fas fa-times"></i
+        ><i class="fas fa-check"></i
       ></span>
     </div>
   </li>
@@ -65,7 +65,7 @@
     <div id="info-tarea-detalle">
       <h2 id="nombre_tarea_detail"></h2>
       <p id="tarea-detail-index"></p>
-      <p id="datetime-tarea-detalle" ng-if="todolist.fecha_detalle != null">
+      <p id="datetime-tarea-detalle" ng-if="todolist.fecha_detalle != null && todolist.fecha_detalle != ''">
         Planeada para {{todolist.fecha_detalle | date }}<span
           ng-if=" todolist.hora_detalle != null"
           >, a las {{todolist.hora_detalle | date : 'shortTime'}}</span

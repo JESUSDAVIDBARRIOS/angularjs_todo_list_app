@@ -82,7 +82,7 @@ angular
         let tarea = this.getItem(index);
         document.querySelector("#nombre_tarea_detail").innerHTML = tarea.nombre;
         document.querySelector("#tarea-detail-index").innerHTML = index;
-        if (tarea.hora != null) {
+        if (tarea.hora != null && tarea.hora != "") {
           this.hora_detalle = "2005-05-05T" + tarea.hora.split(".")[0];
         }
         this.fecha_detalle = tarea.fecha;
@@ -163,6 +163,25 @@ angular
       this.removeItem = function (index) {
         this.mylist.splice(index, 1);
         this.save();
+        // (async() => {
+        //   const contenedorTarea = document.getElementById(
+        //     `contenedor-tarea${index}`
+        //   );
+        //   contenedorTarea.style.animationPlayState = "running";
+        //   setTimeout(function(){
+        //     // contenedorTarea.style.display = "none";
+        //     this.removeTaskFromList();
+        //   }, 1200);
+        // })();
+        // // const contenedorTarea = document.getElementById(
+        // //   `contenedor-tarea${index}`
+        // // );
+        // // contenedorTarea.addEventListener("animationend", () => {
+        // //   // contenedorTarea.style.display = "none";
+        // //   this.mylist.splice(index, 1);
+        // // this.save();
+        // // });
+        // // contenedorTarea.style.animationPlayState = "running";
       };
       this.getItem = function (index) {
         return this.mylist[index];
@@ -189,19 +208,23 @@ angular
         myListToCalendar = [];
         let objeto;
         this.mylist.forEach((element) => {
-          if (element.fecha != null) {
+          if (element.fecha != null && element.fecha != "") {
             var date = new Date(element.fecha);
             date.setDate(date.getDate() + 1);
             var hora =
-              element.hora == null
+              element.hora == null || element.hora == ""
                 ? "Sin hora. "
                 : "Hora: " + element.hora.split(":00.")[0] + ". ";
+            var descripcion =
+              element.descripcion == null
+                ? ""
+                : element.descripcion.slice(0, 35);
             objeto = {
               id: "calendar" + element.id,
               name: element.nombre,
               date: date,
               type: "event",
-              description: hora + element.descripcion.slice(0, 35),
+              description: hora + descripcion,
               color: "#5a5a5a",
             };
             myListToCalendar.push(objeto);
